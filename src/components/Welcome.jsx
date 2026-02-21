@@ -41,7 +41,7 @@ const  setupTextHover=(container,type)=>{
         animateLetter(letter, min +(max-min)*intensity);
     })
    }
-   const handleMouseLeave=(e)=>{
+   const handleMouseLeave=()=>{
     letters.forEach((letter)=>animateLetter(letter,base,0.3));
    }
    container.addEventListener("mousemove",handleMouseMove)
@@ -75,7 +75,7 @@ const Welcome = () => {
     <section id="welcome">
         <p ref={subtitleRef}>
             {
-        renderText("Hey,I`m Amit Welcome To My", 
+        renderText("Hey, I`m Amit Welcome To My", 
             "text-3xl font-georama",
         100,)}</p>
         <h1 ref={titleRef} className='mt-7'>{renderText("Portfolio","text-9xl italic font-georama", )}</h1>
