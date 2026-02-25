@@ -60,9 +60,9 @@ useGSAP(()=>{
             console.error(`windows not found for app:${app.id}`);
             return;
           }
-        const window = windows[app.id];
+        const appwindow = windows[app.id];
 
-        if(window.isOpen){
+        if(appwindow.isOpen){
             closeWindow(app.id);
         }else{
             openWindow(app.id);
