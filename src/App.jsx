@@ -7,7 +7,7 @@ import React from 'react'
 
 import { Draggable } from 'gsap/Draggable'
 import gsap from 'gsap'
-import { Safari, Terminal } from '#windows'
+import { Resume, Safari, Terminal } from '#windows'
 
 
 
@@ -21,6 +21,7 @@ const App = () => {
   
   <Terminal/>
   <Safari/>
+  <Resume/>
    </main>
   )
 }
