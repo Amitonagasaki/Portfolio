@@ -4,4 +4,6 @@ import Resume from "./Resume";
 import Finder from "#windows/Finder";
 import Text from "#windows/Text";
 import Image from "./Image";
-export {Terminal,Safari,Resume,Finder,Text,Image};
+import Contact from "./Contact";
+import Photo from "./Photo";
+export {Terminal,Safari,Resume,Finder,Text,Image,Contact,Photo};

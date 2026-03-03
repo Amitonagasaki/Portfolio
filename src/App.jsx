@@ -3,11 +3,11 @@ import Welcome from '#components/Welcome'
 import Dock from '#components/Dock'
 import React from 'react'
 
-
+import Home from '#components/Home';
 
 import { Draggable } from 'gsap/Draggable'
 import gsap from 'gsap'
-import { Finder, Resume, Safari, Terminal,Text,Image } from '#windows'
+import { Finder, Resume, Safari, Terminal,Text,Image, Contact, Photo } from '#windows'
 
 
 
@@ -23,8 +23,11 @@ const App = () => {
   <Safari/>
   <Resume/>
   <Finder/>
+  <Photo/>
   <Text/>
   <Image/>
+  <Contact/>
+  <Home/>
    </main>
   )
 }
