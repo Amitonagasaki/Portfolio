@@ -14,10 +14,27 @@ const Finder = () => {
     const openItem=(item)=>{
         if(item.fileType==="pdf") return openWindow("resume");
         if(item.kind==="folder") return setActiveLocation(item);
-        if(['fig','url'].includes(item.fileType)&&item.href)
-            return window.open(item.href,"_blank");
-        
-        openWindow(`${item.fileType} ${item.kind}`, item);
+        if(['fig','url'].includes(item.fileType)&&item.href) return window.open(item.href,"_blank");
+       //added part
+        if (item.fileType === "txt") {
+    openWindow("txtfile", {
+      name: item.name.replace(/\.txt$/i, ""),
+      subtitle: item.subtitle || undefined,
+      image: item.image || undefined,
+      description: item.description || [],
+    });
+    return;
+  }
+
+  if (item.fileType === "img") {
+    openWindow("imgfile", {
+      name: item.name,
+      imageUrl: item.imageUrl || item.src || "",
+      // add caption, date, etc. if you want
+    });
+    return;
+  }
+  console.warn(`No handler for file type: ${item.fileType}`);
 
     }
     const renderList = (items)=> items.map((item)=>(
