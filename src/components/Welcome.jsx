@@ -76,13 +76,13 @@ const Welcome = () => {
         <p ref={subtitleRef}>
             {
         renderText("Hey, I`m Amit Welcome To My", 
-            "text-3xl font-georama",
+            " text-xl md:text-3xl font-georama",
         100,)}</p>
-        <h1 ref={titleRef} className='mt-7'>{renderText("Portfolio","text-9xl italic font-georama", )}</h1>
+        <h1 ref={titleRef} className='mt-7'>{renderText("Portfolio"," text-5xl md:text-9xl italic font-georama", )}</h1>
 
-        <div className='small-screen'>
+        {/* <div className='small-screen'>
          <p>This Portfolio designed for  desktop and tablet screens only</p>
-        </div>
+        </div> */}
         </section>
   )
 }

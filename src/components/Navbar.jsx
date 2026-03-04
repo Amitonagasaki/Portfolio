@@ -1,15 +1,16 @@
 import React from 'react'
 
 import dayjs from 'dayjs'
-import { navIcons, navLinks } from '#constants'
+import { navIcons, navIconsMoblie, navLinks } from '#constants'
 import useWindowsStore from '#store/window'
 const Navbar = () => {
     const {openWindow}= useWindowsStore();
   return (
-  <nav>
+    <>
+     <nav>
     <div>
-        <img src="/images/logo.svg" alt='logo'/>
-        <p className='font-bold'>Amit Portfolio</p>
+        <img src="/images/logo.svg" className='hidden md:block' alt='logo'/>
+        <p className='hidden md:font-bold'>Amit Portfolio</p>
 
         <ul>
             {navLinks.map(({id,name, type})=>(
@@ -22,16 +23,40 @@ const Navbar = () => {
     </div>
 
     <div>
-        <ul>
+        <ul className=''>
             {navIcons.map(({id ,img})=>(
                 <li key={id}>
                 <img src={img} className='icon-hover' alt={`icon-${id }`}/>
                 </li>
             ))}
         </ul>
-        <time>{dayjs().format("ddd MMM D h:mm A")}</time>
-    </div>
+        <time className='hidden md:block'>{dayjs().format("ddd MMM D h:mm A")}</time>
+       </div>
+    
   </nav>
+
+  <nav className='flex justify-between md:hidden p-3 px-5 '>
+    <div>
+         <time className='text-white  md:hidden  '>{dayjs().format("h:mm A")}</time>
+    </div>
+     
+      <div className='bg-black w-46 h-10 rounded-3xl '>
+
+      </div>
+      <div>
+   <ul className='flex  '>
+            {navIconsMoblie.map(({id ,img})=>(
+                <li key={id}>
+                <img src={img} className=' size-4 filter brightness-0 invert' alt={`icon-${id }`}/>
+                </li>
+            ))}
+        </ul>
+      </div>
+
+  </nav>
+    </>
+ 
+  
   )
 }
 

@@ -34,6 +34,18 @@ const navIcons = [
     img: "/icons/mode.svg",
   },
 ];
+const navIconsMoblie = [
+  {
+    id: 1,
+    img: "/icons/wifi.svg",
+  },
+
+  {
+    id: 2,
+    img: "/icons/user.svg",
+  },
+  
+];
 
 const dockApps = [
   {
@@ -72,6 +84,34 @@ const dockApps = [
     icon: "trash.png",
     canOpen: false,
   },
+];
+const dockAppsMoblie = [
+  {
+    id: "finder",
+    name: "Portfolio", // was "Finder"
+    icon: "finder.png",
+    canOpen: true,
+  },
+  {
+    id: "safari",
+    name: "Articles", // was "Safari"
+    icon: "safari.png",
+    canOpen: true,
+  },
+
+  {
+    id: "contact",
+    name: "Contact", // or "Get in touch"
+    icon: "contact.png",
+    canOpen: true,
+  },
+  {
+    id: "terminal",
+    name: "Skills", // was "Terminal"
+    icon: "terminal.png",
+    canOpen: true,
+  },
+
 ];
 
 const blogPosts = [
@@ -207,7 +247,9 @@ const gallery = [
 export {
   navLinks,
   navIcons,
+  navIconsMoblie,
   dockApps,
+  dockAppsMoblie,
   blogPosts,
   techStack,
   socials,
