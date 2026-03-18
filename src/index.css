@@ -115,14 +115,14 @@ body {
   }
 
   #window-header {
-    @apply flex items-center justify-between px-4 py-3 rounded-t-lg bg-gray-50 border-b border-gray-200 select-none text-sm text-gray-400;
+    @apply flex mt-15  items-center  justify-between px-4 py-3 rounded-t-lg bg-white md:bg-gray-50 md:border-b border-gray-200 select-none text-sm text-gray-400;
   }
 
   #safari {
-    @apply w-4xl absolute top-40 left-2/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply md:w-4xl w-full h-full md:h-fit  absolute md:top-40 top-0 md:left-2/12 bg-white shadow-2xl drop-shadow-2xl md:rounded-xl overflow-hidden;
 
     .search {
-      @apply flex items-center gap-3 w-2/3 bg-white border border-gray-300 rounded-lg px-3 py-2;
+      @apply flex items-center  md:gap-3 md:w-2/3 bg-white border border-gray-300 rounded-lg px-3  py-2 md:static fixed bottom-15 w-[90%]  ;
 
       input {
         @apply placeholder:text-gray-400;

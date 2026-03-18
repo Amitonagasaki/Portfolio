@@ -7,7 +7,7 @@ import WindowWrapper from "#hoc/WindowWrapper"
 const Contact = () => {
   return (
   <>
-  <div id="window-header">
+ <div id="window-header" >
       <WindowControls target="contact"/>
     <h2>Contact Me</h2>
     </div>
@@ -30,6 +30,8 @@ const Contact = () => {
         </ul>
 
     </div>
+
+ 
 
   </>
   )

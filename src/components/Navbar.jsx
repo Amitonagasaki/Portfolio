@@ -35,9 +35,9 @@ const Navbar = () => {
     
   </nav>
 
-  <nav className='flex justify-between md:hidden p-3 px-5 '>
+  <nav className='flex justify-between md:hidden p-3 px-5 sticky z-100000 '>
     <div>
-         <time className='text-white  md:hidden  '>{dayjs().format("h:mm A")}</time>
+         <time className='text-black  md:hidden  '>{dayjs().format("h:mm A")}</time>
     </div>
      
       <div className='bg-black w-46 h-10 rounded-3xl '>
@@ -47,7 +47,7 @@ const Navbar = () => {
    <ul className='flex  '>
             {navIconsMoblie.map(({id ,img})=>(
                 <li key={id}>
-                <img src={img} className=' size-4 filter brightness-0 invert' alt={`icon-${id }`}/>
+                <img src={img} className=' size-4 filter brightness-0' alt={`icon-${id }`}/>
                 </li>
             ))}
         </ul>

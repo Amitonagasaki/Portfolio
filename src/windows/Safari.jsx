@@ -7,18 +7,18 @@ import React from 'react'
 const Safari = () => {
   return (
     <>
-    <div id = "window-header">
+    <div id = "window-header" >
         <WindowControls target="safari"/>
-        <PanelLeft className='ml-10 icon'/>
+        <PanelLeft className='ml-10 icon md:block hidden'/>
 
-        <div className='flex items-center gap-1 ml-5'>
+        <div className='md:flex items-center gap-1 ml-5  hidden '>
             <ChevronLeft className='icon'/>
             <ChevronRight className='icon'/>
       </div>
 
-       <div className='flex-1 flex-center gap-3'>
-        <ShieldHalf className='icon'/>
-        <div className='search'>
+       <div className='md:flex-1 flex-center gap-3 '>
+        <ShieldHalf className='icon hidden md:block '/>
+        <div className='search '>
             <Search className='icon'/>
 
             <input type='text' placeholder='search or enter website name' className='flex-1'/>
@@ -27,7 +27,7 @@ const Safari = () => {
 
        </div>
     
-    <div className='flex items-center gap-5'>
+    <div className='md:flex hidden items-center gap-5'>
         <Share className="icon"/>
         <Plus className="icon"/>
         <Copy className="icon"/>
