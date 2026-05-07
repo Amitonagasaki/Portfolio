@@ -1,6 +1,6 @@
 import useWindowsStore from '#store/window'
 import React from 'react'
-
+import {  ChevronLeft } from 'lucide-react'
 const WindowControls = ({target}) => {
     const {closeWindow}= useWindowsStore();
   return (
@@ -12,8 +12,11 @@ const WindowControls = ({target}) => {
     </div>
 
 
-   <div className='md:hidden'  onClick={()=>closeWindow(target)}>
-   <p className='text-black  '> &lt; <span className='text-blue-500 '>Go back</span></p>
+   <div className='md:hidden '  onClick={()=>closeWindow(target)}>
+   < div className='flex flex-row gap-1 text-blue-500 text-sm '>  
+    <ChevronLeft className='w-4 h-4'/>
+   Go back
+   </div>
    </div>
   
     

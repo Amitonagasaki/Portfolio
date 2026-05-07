@@ -1,10 +1,12 @@
 import WindowControls from '#components/WindowControls'
 import { blogPosts } from '#constants'
 import WindowWrapper from '#hoc/WindowWrapper'
+
 import { ChevronLeft, ChevronRight, PanelLeft, Search, Share, Plus,Copy, ShieldHalf, MoveRight } from 'lucide-react'
 import React from 'react'
-
 const Safari = () => {
+  
+
   return (
     <>
     <div id = "window-header" >
