@@ -12,8 +12,8 @@ const WindowControls = ({target}) => {
     </div>
 
 
-   <div className='md:hidden '  onClick={()=>closeWindow(target)}>
-   < div className='flex flex-row gap-1 text-blue-500 text-sm '>  
+   <div className='md:hidden  '  onClick={()=>closeWindow(target)}>
+   < div className='flex flex-row gap-1 text-blue-500 text-sm mt-4 '>  
     <ChevronLeft className='w-4 h-4'/>
    Go back
    </div>

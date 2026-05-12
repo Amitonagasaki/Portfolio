@@ -69,7 +69,7 @@ const Finder = () => {
       </div>
 
       {/* ── 2. Breadcrumb Bar ── */}
-      <div className='flex items-center gap-2 px-3 py-2 border-b border-gray-100 bg-white'>
+      <div className='flex items-center gap-2 px-3 py-2 border-b border-gray-100 bg-white dark:bg-zinc-800 dark:text-white'>
         <div className='flex md:hidden items-center gap-2 flex-1 min-w-0'>
           {mobileView === 'content' ? (
             <>
@@ -81,7 +81,7 @@ const Finder = () => {
                 <span>Back</span>
               </button>
               <ChevronRight className='w-3 h-3 text-gray-300 shrink-0' />
-              <span className='truncate text-sm font-medium text-gray-800'>
+              <span className='truncate text-sm font-medium text-gray-800 dark:text-gray-200'>
                 {activeLocation?.name}
               </span>
             </>
@@ -91,12 +91,12 @@ const Finder = () => {
         </div>
 
         {/* Desktop breadcrumb */}
-        <div className='hidden md:flex items-center gap-1 text-sm text-gray-500 flex-1 min-w-0'>
+        <div className='hidden md:flex items-center gap-1 text-sm text-gray-500 flex-1 min-w-0 dark:bg-gray-800 dark:text-white'>
           <span>Finder</span>
           {activeLocation && (
             <>
-              <ChevronRight className='w-3 h-3 shrink-0' />
-              <span className='truncate font-medium text-gray-800'>
+              <ChevronRight className='w-3 h-3 shrink-0 ' />
+              <span className='truncate font-medium text-gray-800 dark:bg-gray-800 dark:text-white'>
                 {activeLocation?.name}
               </span>
             </>
@@ -134,7 +134,7 @@ const Finder = () => {
 
         {/* ── Content ── */}
         <div className={clsx(
-          'flex-1 overflow-y-auto bg-white border-l border-gray-100',
+          'flex-1 overflow-y-auto bg-white md:border-l dark:bg-zinc-800 md:border-gray-100',
           mobileView === 'content' ? 'block' : 'hidden md:block'
         )}>
           {!activeLocation || activeLocation.children?.length === 0 ? (
@@ -145,7 +145,7 @@ const Finder = () => {
           ) : (
             <>
               {/* Mobile: list view */}
-              <ul className='md:hidden divide-y divide-gray-100'>
+              <ul className='md:hidden divide-y divide-gray-100 '>
                 {activeLocation.children.map((item, index) => (
                   <li
                     key={`${activeLocation.id}-${item.id}-${index}`}
@@ -158,7 +158,7 @@ const Finder = () => {
                       className='w-9 h-9 object-contain shrink-0'
                     />
                     <div className='flex-1 min-w-0'>
-                      <p className='text-sm font-medium text-gray-800 truncate'>{item.name}</p>
+                      <p className='text-sm font-medium text-gray-800 dark:text-white truncate'>{item.name}</p>
                       {item.fileType && (
                         <p className='text-xs text-gray-400 uppercase'>{item.fileType}</p>
                       )}
@@ -169,12 +169,12 @@ const Finder = () => {
               </ul>
 
               {/* Desktop: absolute icon grid */}
-              <div className='hidden md:block relative w-full h-full'>
+              <div className='hidden md:block relative w-full h-full dark:bg-zinc-800'>
                 {activeLocation.children.map((item, index) => (
                   <li
                     key={`${activeLocation.id}-${item.id}-${index}`}
                     className={clsx(
-                      'absolute flex items-center flex-col gap-3 group cursor-pointer',
+                      'absolute flex items-center flex-col gap-3 group cursor-pointer dark:text-white',
                       item.position
                     )}
                     onClick={() => openItem(item)}

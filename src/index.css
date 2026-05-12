@@ -19,6 +19,8 @@ body {
   --breakpoint-3xl: 1920px;
 }
 
+@variant dark (&:where(.dark, .dark *));
+
 @utility flex-center {
   @apply flex items-center justify-center;
 }
@@ -38,15 +40,15 @@ body {
 
   nav {
     @apply flex justify-between items-center
-           bg-white/50 backdrop-blur-3xl px-4 md:py-2
+           bg-white/50 dark:bg-black/20
+           backdrop-blur-3xl px-4 md:py-2
            md:px-5 select-none z-50 relative;
 
     div {
       @apply flex items-center gap-3 md:gap-5;
 
-      /* Last div (clock/time area) */
       &:last-child {
-        @apply flex items-center gap-3;
+        @apply flex  items-center gap-3;
       }
     }
 
@@ -54,33 +56,36 @@ body {
       @apply hidden md:flex items-center gap-5;
 
       p {
-        @apply text-sm cursor-pointer hover:underline transition-all;
+        @apply text-sm cursor-pointer hover:underline transition-all
+               text-black dark:text-white;
       }
     }
 
     time {
-      @apply text-xs md:text-sm font-medium text-black;
+      @apply text-xs md:text-sm font-medium
+             text-black dark:text-white ;
     }
   }
 }
 
 @layer components {
   .icon {
-    @apply p-1 hover:bg-gray-200 rounded hover:cursor-default;
+    @apply p-1 rounded hover:cursor-default
+           hover:bg-gray-200 dark:hover:bg-white/10;
   }
 
   /* ─── Welcome Screen ─────────────────────────────────────────── */
   #welcome {
-    @apply text-gray-200 flex flex-col justify-center items-center
+    @apply text-gray-100 dark:text-gray-800
+           flex flex-col justify-center items-center
            absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
            select-none
-           /* mobile */
            h-screen w-full px-6
-           /* tablet+ */
            sm:w-auto sm:h-auto sm:px-10;
 
     .small-screen {
-      @apply sm:hidden m-5 bg-red-300/20 backdrop-blur-lg p-3 rounded-md absolute top-10;
+      @apply sm:hidden m-5 bg-red-300/20 backdrop-blur-lg
+             p-3 rounded-md absolute top-10;
 
       p {
         @apply flex-1 text-[16px] text-center font-roboto text-gray-400;
@@ -93,17 +98,17 @@ body {
     @apply absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 z-50 select-none;
 
     .dock-container {
-      @apply bg-white/20 backdrop-blur-md justify-between rounded-2xl
-             p-1.5 flex items-end gap-1 sm:gap-1.5;
+      @apply justify-between rounded-2xl p-1.5 flex items-end gap-1 sm:gap-1.5
+             bg-white/20 dark:bg-white/10 backdrop-blur-md;
     }
 
     .tooltip {
-      @apply py-1! px-3! w-fit! text-center! text-xs! rounded-md!
-             bg-blue-200! text-blue-900! shadow-2xl!;
+      @apply py-1! px-3! w-fit! text-center! text-xs! rounded-md! shadow-2xl!
+             bg-blue-200! text-blue-900!
+             dark:bg-blue-900! dark:text-blue-100!;
     }
 
     .dock-icon {
-      /* mobile → tablet → desktop → 3xl */
       @apply size-20 sm:size-14 md:size-16 lg:size-19 3xl:size-20 cursor-pointer;
 
       img {
@@ -116,113 +121,110 @@ body {
   #window-controls {
     @apply flex gap-2 mt-15 md:mt-0;
 
-    .close {
-      @apply size-3.5 rounded-full bg-[#ff6157] cursor-pointer;
-    }
-
-    .minimize {
-      @apply size-3.5 rounded-full bg-[#ffc030];
-    }
-
-    .maximize {
-      @apply size-3.5 rounded-full bg-[#2acb42];
-    }
+    .close    { @apply size-3.5 rounded-full bg-[#ff6157] cursor-pointer; }
+    .minimize { @apply size-3.5 rounded-full bg-[#ffc030]; }
+    .maximize { @apply size-3.5 rounded-full bg-[#2acb42]; }
   }
 
   /* ─── Window Header ──────────────────────────────────────────── */
   #window-header {
-    @apply flex mt-0 md:pt-2  md:items-center md:justify-between
-           px-3 md:px-4  rounded-t-lg pb-2
-           bg-white md:bg-gray-50 md:border-b border-gray-200
-           select-none text-sm text-gray-400;
+    @apply flex mt-0 md:pt-2 md:items-center md:justify-between
+           px-3 md:px-4 rounded-t-lg pb-2
+           bg-white dark:bg-zinc-800
+           md:bg-gray-50 md:dark:bg-zinc-800
+           md:border-b border-gray-200 dark:border-zinc-700
+           select-none text-sm
+           text-gray-400 dark:text-zinc-400;
   }
 
   /* ─── Safari Window ──────────────────────────────────────────── */
   #safari {
-    /* Mobile: full screen */
     @apply w-full h-full absolute top-0 left-0
-           bg-white shadow-2xl drop-shadow-2xl overflow-hidden
-    /* Tablet: card, centered */
+           bg-white dark:bg-zinc-900
+           shadow-2xl drop-shadow-2xl overflow-hidden
            sm:w-[90vw] sm:h-auto sm:top-20 sm:left-1/2 sm:-translate-x-1/2
            sm:rounded-xl sm:max-h-[80vh] sm:overflow-y-auto
-    /* Desktop */
            md:w-4xl md:translate-x-0 md:left-2/12 md:top-40
            md:rounded-xl md:max-h-none md:overflow-hidden;
 
     .search {
-      @apply flex items-center gap-2 md:gap-3
-             bg-white border border-gray-300 rounded-lg px-3 py-2
-             /* mobile: fixed bar at bottom */
+      @apply flex items-center gap-2 md:gap-3 rounded-lg px-3 py-2
+             bg-white dark:bg-zinc-800
+             border border-gray-300 dark:border-zinc-600
              fixed bottom-16 w-[90%] left-1/2 -translate-x-1/2
-             /* tablet+: static, inside the window */
              sm:static sm:translate-x-0 sm:w-2/3;
 
       input {
-        @apply placeholder:text-gray-400 text-sm w-full outline-none;
+        @apply text-sm w-full outline-none bg-transparent
+               placeholder:text-gray-400 dark:placeholder:text-zinc-500
+               text-gray-800 dark:text-zinc-100;
       }
     }
 
-   .blog {
-    @apply bg-white p-5 md:p-10 max-w-3xl mx-auto;
+    .blog {
+      @apply p-5 md:p-10 max-w-3xl mx-auto
+             bg-white dark:bg-zinc-900;
 
-    h2 {
-      @apply text-xl font-bold text-pink-600 mb-6 md:mb-10;
-    }
-
-    .blog-post {
-      @apply grid grid-cols-12 gap-3 md:gap-0 md:space-x-5;
-
-      /* thumbnail column */
-      div:first-child {
-        @apply col-span-2;
+      h2 {
+        @apply text-xl font-bold mb-6 md:mb-10
+               text-pink-600 dark:text-pink-400;
       }
 
-      .content {
-        @apply col-span-10 space-y-2 md:space-y-3;
+      .blog-post {
+        @apply grid grid-cols-12 gap-3 md:gap-0 md:space-x-5;
 
-        p  { @apply text-xs text-gray-500; }
-        h3 { @apply font-semibold text-sm md:text-base text-gray-800; }
-        a  { @apply text-blue-600 text-xs hover:underline flex items-center gap-2; }
+        div:first-child {
+          @apply col-span-2;
+        }
+
+        .content {
+          @apply col-span-10 space-y-2 md:space-y-3;
+
+          p  { @apply text-xs text-gray-500 dark:text-zinc-400; }
+          h3 { @apply font-semibold text-sm md:text-base text-gray-800 dark:text-zinc-100; }
+          a  { @apply text-xs hover:underline flex items-center gap-2
+                      text-blue-600 dark:text-blue-400; }
+        }
       }
     }
-  }
   }
 
   /* ─── Terminal Window ────────────────────────────────────────── */
   #terminal {
-    /* Hidden on mobile, card on tablet, positioned on desktop */
     @apply hidden
            sm:block sm:w-[85vw] sm:relative sm:top-auto sm:left-auto
            sm:mx-auto sm:mt-5 sm:rounded-xl
            md:w-xl md:absolute md:top-32 md:left-1/12
-           bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+           bg-white dark:bg-zinc-900
+           shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     h2 {
-      @apply font-bold text-sm text-center w-full;
+      @apply font-bold text-sm text-center w-full
+             text-gray-800 dark:text-zinc-100;
     }
 
     .techstack {
-      @apply text-sm font-roboto p-4 md:p-5;
+      @apply text-sm font-roboto p-4 md:p-5
+             text-gray-700 dark:text-zinc-300;
 
       .label {
         @apply flex items-center ms-5 md:ms-10 mt-5 md:mt-7;
       }
 
       .content {
-        @apply py-4 md:py-5 my-4 md:my-5 border-y border-dashed space-y-1;
+        @apply py-4 md:py-5 my-4 md:my-5 space-y-1
+               border-y border-dashed
+               border-gray-300 dark:border-zinc-600;
 
         li {
-          .check {
-            @apply text-[#00A154] w-5;
-          }
+          .check { @apply text-[#00A154] w-5; }
 
           h3 {
-            @apply font-semibold text-[#00A154] w-28 md:w-32 ms-3 md:ms-5;
+            @apply font-semibold w-28 md:w-32 ms-3 md:ms-5
+                   text-[#00A154];
           }
 
-          ul {
-            @apply flex items-center gap-2 md:gap-3 flex-wrap;
-          }
+          ul { @apply flex items-center gap-2 md:gap-3 flex-wrap; }
         }
       }
 
@@ -232,9 +234,7 @@ body {
         p {
           @apply flex items-center;
 
-          svg {
-            @apply w-5 me-3 md:me-5;
-          }
+          svg { @apply w-5 me-3 md:me-5; }
         }
       }
     }
@@ -242,19 +242,25 @@ body {
 
   /* ─── Contact Window ─────────────────────────────────────────── */
   #contact {
-    /* Hidden on mobile, card on tablet, positioned on desktop */
     @apply hidden
            sm:block sm:w-[85vw] sm:relative sm:top-auto sm:left-auto
            sm:mx-auto sm:mt-5 sm:rounded-xl
            md:max-w-2xl md:absolute md:top-60 md:left-5/12
-           bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+           bg-white dark:bg-zinc-900
+           shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     h2 {
-      @apply font-bold text-sm text-center w-full;
+      @apply font-bold text-sm text-center w-full
+             text-gray-800 dark:text-zinc-100;
     }
 
     h3 {
-      @apply text-lg md:text-xl font-semibold;
+      @apply text-lg md:text-xl font-semibold
+             text-gray-800 dark:text-zinc-100;
+    }
+
+    p {
+      @apply text-gray-500 dark:text-zinc-400;
     }
 
     ul {
@@ -265,51 +271,42 @@ body {
                hover:-translate-y-0.5 hover:scale-105
                origin-center transition-all duration-300;
 
-        a {
-          @apply space-y-3 md:space-y-5;
-        }
-
-        p {
-          @apply font-semibold text-sm text-white;
-        }
+        a  { @apply flex items-center gap-3; }
+        p  { @apply font-semibold text-sm text-white; }
       }
     }
   }
 
   /* ─── Photos Window ──────────────────────────────────────────── */
   #photos {
-    /* Hidden on mobile, card on tablet, positioned on desktop */
     @apply hidden
            sm:block sm:w-[90vw] sm:relative sm:top-auto sm:left-auto sm:translate-y-0
            sm:mx-auto sm:mt-5 sm:rounded-xl sm:overflow-hidden
            md:max-w-3xl md:absolute md:top-96 md:left-1/2 md:-translate-y-1/2
-           bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+           bg-white dark:bg-zinc-900
+           shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     .sidebar {
-      @apply hidden md:flex w-3/12 flex-none bg-gray-50
-             border-r border-gray-200 flex-col p-5;
+      @apply hidden md:flex w-3/12 flex-none flex-col p-5
+             bg-gray-50 dark:bg-zinc-800
+             border-r border-gray-200 dark:border-zinc-700;
 
       h2 {
-        @apply text-xs font-medium text-gray-400 mb-1;
+        @apply text-xs font-medium mb-1
+               text-gray-400 dark:text-zinc-500;
       }
 
-      ul {
-        li {
-          @apply flex space-y-1 items-center gap-2 px-3 py-2
-                 rounded-md cursor-pointer transition-colors;
+      ul li {
+        @apply flex space-y-1 items-center gap-2 px-3 py-2
+               rounded-md cursor-pointer transition-colors;
 
-          &:first-child {
-            @apply bg-blue-100 text-blue-700;
-          }
-
-          img {
-            @apply w-4;
-          }
-
-          p {
-            @apply text-sm font-medium;
-          }
+        &:first-child {
+          @apply bg-blue-100 dark:bg-blue-900
+                 text-blue-700 dark:text-blue-200;
         }
+
+        img { @apply w-4; }
+        p   { @apply text-sm font-medium text-gray-700 dark:text-zinc-200; }
       }
     }
 
@@ -321,26 +318,12 @@ body {
                grid-rows-3 md:grid-rows-5 gap-2 md:gap-2.5;
 
         li {
-          img {
-            @apply size-full object-cover rounded-lg;
-          }
+          img { @apply size-full object-cover rounded-lg; }
 
-          /* Keep desktop grid placement only on md+ */
-          &:first-child {
-            @apply md:row-start-1 md:row-span-3 md:col-start-1 md:col-span-3;
-          }
-
-          &:nth-child(2) {
-            @apply md:row-start-1 md:row-span-3 md:col-start-4 md:col-span-2;
-          }
-
-          &:nth-child(3) {
-            @apply md:row-start-4 md:row-span-2 md:col-start-3 md:col-span-3;
-          }
-
-          &:last-child {
-            @apply md:row-start-4 md:row-span-2 md:col-start-1 md:col-span-2;
-          }
+          &:first-child  { @apply md:row-start-1 md:row-span-3 md:col-start-1 md:col-span-3; }
+          &:nth-child(2) { @apply md:row-start-1 md:row-span-3 md:col-start-4 md:col-span-2; }
+          &:nth-child(3) { @apply md:row-start-4 md:row-span-2 md:col-start-3 md:col-span-3; }
+          &:last-child   { @apply md:row-start-4 md:row-span-2 md:col-start-1 md:col-span-2; }
         }
       }
     }
@@ -348,67 +331,68 @@ body {
 
   /* ─── Resume Window ──────────────────────────────────────────── */
   #resume {
-    /* Hidden on mobile, card on tablet, positioned on desktop */
     @apply hidden
            sm:block sm:w-[90vw] sm:h-auto sm:relative sm:top-auto sm:left-auto
            sm:mx-auto sm:mt-5 sm:rounded-xl
            md:w-fit md:h-fit md:absolute md:top-16 md:left-7/12
-           bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+           bg-white dark:bg-zinc-900
+           shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
-    #window-header {
-      h2 {
-        @apply font-bold text-sm text-center flex-1;
-      }
+    #window-header h2 {
+      @apply font-bold text-sm text-center flex-1;
     }
   }
 
   /* ─── Finder Window ──────────────────────────────────────────── */
   #finder {
-    /* Hidden on mobile, card on tablet, positioned on desktop */
     @apply hidden
            sm:block sm:w-[90vw] sm:relative sm:top-auto sm:left-auto
            sm:mx-auto sm:mt-5
            md:w-3xl md:absolute md:left-40 md:top-20
-           shadow-2xl drop-shadow-2xl overflow-hidden rounded-xl;
+           shadow-2xl drop-shadow-2xl overflow-hidden rounded-xl dark:bg-zinc-800;
 
     .sidebar {
-      @apply hidden md:flex w-48 bg-gray-50
-             border-r border-gray-200 flex-col p-5 space-y-3;
+      @apply hidden md:flex w-48 flex-col p-5 space-y-3
+             bg-gray-50 dark:bg-zinc-800
+             border-r border-gray-200 dark:border-zinc-700;
 
       h3 {
-        @apply text-xs font-medium text-gray-400 mb-1;
+        @apply text-xs font-medium mb-1
+               text-gray-400 dark:text-zinc-500;
       }
 
       ul {
         @apply space-y-1;
 
         .active {
-          @apply bg-blue-100 text-blue-700;
+          @apply bg-blue-100 dark:bg-blue-900
+                 text-blue-700 dark:text-blue-200;
         }
 
         .not-active {
-          @apply text-gray-700 hover:bg-gray-200;
+          @apply text-gray-700 dark:text-zinc-300
+                 hover:bg-gray-200 dark:hover:bg-zinc-700;
         }
 
         li {
-          @apply flex items-center gap-2 px-3 py-2 rounded-md cursor-pointer transition-colors;
+          @apply flex items-center gap-2 px-3 py-2
+                 rounded-md cursor-pointer transition-colors;
         }
       }
     }
 
     .content {
-      @apply flex-1 p-5 md:p-8 bg-white max-w-2xl relative;
+      @apply flex-1 p-5 md:p-8 max-w-2xl relative
+             bg-white dark:bg-zinc-900;
 
       li {
         @apply absolute flex items-center flex-col gap-3;
 
-        img {
-          @apply object-contain object-center size-12 md:size-16
-                 relative group-hover:scale-105;
-        }
+        img { @apply object-contain object-center size-12 md:size-16 group-hover:scale-105; }
 
         p {
-          @apply text-xs md:text-sm text-center font-medium w-32 md:w-40;
+          @apply text-xs md:text-sm text-center font-medium w-32 md:w-40
+                 text-gray-800 dark:text-zinc-200;
         }
       }
     }
@@ -416,35 +400,35 @@ body {
 
   /* ─── Text File Window ───────────────────────────────────────── */
   #txtfile {
-    /* Hidden on mobile, card on tablet, positioned on desktop */
     @apply hidden
            sm:block sm:w-[85vw] sm:relative sm:top-auto sm:right-auto
            sm:mx-auto sm:mt-5 sm:rounded-xl
            md:w-md md:absolute md:top-36 md:right-32
-           bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+           bg-white dark:bg-zinc-800
+           shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     h2 {
-      @apply font-bold text-sm text-center w-full;
+      @apply font-bold text-sm text-center w-full
+             text-gray-800 dark:text-zinc-100;
     }
   }
 
   /* ─── Image File Window ──────────────────────────────────────── */
   #imgfile {
-    /* Hidden on mobile, card on tablet, positioned on desktop */
     @apply hidden
            sm:block sm:w-[85vw] sm:relative sm:top-auto sm:left-auto
            sm:mx-auto sm:mt-5 sm:rounded-xl
            md:w-xl md:absolute md:top-40 md:left-2/12
-           bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+           bg-white dark:bg-zinc-900
+           shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
-    #window-header {
-      p {
-        @apply font-bold text-[#5f6266];
-      }
+    #window-header p {
+      @apply font-bold text-[#5f6266] dark:text-zinc-300;
     }
 
     .preview {
-      @apply p-2 bg-gray-200 max-h-[50vh] md:max-h-[70vh];
+      @apply p-2 max-h-[50vh] md:max-h-[70vh]
+             bg-gray-200 dark:bg-zinc-800;
 
       img {
         @apply w-full h-fit object-contain object-center;
@@ -456,18 +440,17 @@ body {
   #home {
     @apply relative z-0 hidden md:block;
 
-    ul {
-      li {
-        @apply absolute z-0 select-none flex items-center flex-col;
+    ul li {
+      @apply absolute z-0 select-none flex items-center flex-col;
 
-        img {
-          @apply group-hover:bg-gray-950/10 p-1 rounded-md;
-        }
+      img {
+        @apply p-1 rounded-md
+               group-hover:bg-gray-950/10 dark:group-hover:bg-white/10;
+      }
 
-        p {
-          @apply text-sm text-white text-center px-1 rounded-md
-                 group-hover:bg-blue-500 transition-colors max-w-40;
-        }
+      p {
+        @apply text-sm text-white text-center px-1 rounded-md
+               group-hover:bg-blue-500 transition-colors max-w-40;
       }
     }
   }

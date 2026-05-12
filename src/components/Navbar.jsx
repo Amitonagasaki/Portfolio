@@ -3,8 +3,12 @@ import React from 'react'
 import dayjs from 'dayjs'
 import { navIcons, navIconsMoblie, navLinks } from '#constants'
 import useWindowsStore from '#store/window'
+import useThemeStore from '#store/theme'
+import { Sun, Moon } from 'lucide-react'
+
 const Navbar = () => {
     const {openWindow}= useWindowsStore();
+      const { isDark, toggleTheme } = useThemeStore();
   return (
     <>
      <nav>
@@ -24,9 +28,15 @@ const Navbar = () => {
 
     <div>
         <ul className=''>
-            {navIcons.map(({id ,img})=>(
-                <li key={id}>
-                <img src={img} className='icon-hover' alt={`icon-${id }`}/>
+            {navIcons.map(({id ,img})=> id===4?(
+                <li key={id} onClick={toggleTheme} className='cursor-pointer'>
+                    {isDark? <Moon className='icon-hover w-4 h-4 filter brightness-0 invert '/>
+                    :<Sun className='icon-hover w-4 h-4'/>
+                } 
+                </li>) :(
+                    <li key={id}>
+
+                <img src={img} className='icon-hover filter brightness-0 dark:invert' alt={`icon-${id }`}/>
                 </li>
             ))}
         </ul>
@@ -35,19 +45,19 @@ const Navbar = () => {
     
   </nav>
 
-  <nav className='flex justify-between md:hidden p-3 px-5 sticky z-100000 '>
+  <nav className='flex justify-between md:hidden p-3 px-5 sticky z-100000'>
     <div>
-         <time className='text-black  md:hidden  '>{dayjs().format("h:mm A")}</time>
+         <time className='md:hidden'>{dayjs().format("h:mm A")}</time>
     </div>
      
-      <div className='bg-black w-46 h-10 rounded-3xl '>
+      <div className='bg-black w-46 h-10 rounded-3xl'>
 
       </div>
       <div>
-   <ul className='flex  '>
+   <ul className='flex items-center gap-1 '>
             {navIconsMoblie.map(({id ,img})=>(
                 <li key={id}>
-                <img src={img} className=' size-4 filter brightness-0' alt={`icon-${id }`}/>
+                <img src={img} className=' icon-hover filter brightness-0 dark:brightness-0 dark:invert' alt={`icon-${id }`}/>
                 </li>
             ))}
         </ul>
