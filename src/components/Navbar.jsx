@@ -54,10 +54,22 @@ const Navbar = () => {
 
       </div>
       <div>
-   <ul className='flex items-center gap-1 '>
-            {navIconsMoblie.map(({id ,img})=>(
+   <ul className='flex items-center  '>
+            {/* {navIconsMoblie.map(({id ,img})=>(
                 <li key={id}>
                 <img src={img} className=' icon-hover filter brightness-0 dark:brightness-0 dark:invert' alt={`icon-${id }`}/>
+                </li>
+            ))} */}
+
+            {navIconsMoblie.map(({id ,img})=> id===2?(
+                <li key={id} onClick={toggleTheme} className='cursor-pointer'>
+                    {isDark? <Moon className='icon-hover w-4 h-4 filter brightness-0 invert '/>
+                    :<Sun className='icon-hover w-4 h-4'/>
+                } 
+                </li>) :(
+                    <li key={id}>
+
+                <img src={img} className='icon-hover filter brightness-0 dark:invert' alt={`icon-${id }`}/>
                 </li>
             ))}
         </ul>

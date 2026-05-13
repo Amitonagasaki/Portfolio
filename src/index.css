@@ -76,21 +76,14 @@ body {
 
   /* ─── Welcome Screen ─────────────────────────────────────────── */
   #welcome {
-    @apply text-gray-100 dark:text-gray-800
+    @apply text-gray-100 dark:text-gray-400 
            flex flex-col justify-center items-center
            absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
            select-none
            h-screen w-full px-6
            sm:w-auto sm:h-auto sm:px-10;
 
-    .small-screen {
-      @apply sm:hidden m-5 bg-red-300/20 backdrop-blur-lg
-             p-3 rounded-md absolute top-10;
-
-      p {
-        @apply flex-1 text-[16px] text-center font-roboto text-gray-400;
-      }
-    }
+    
   }
 
   /* ─── Dock ───────────────────────────────────────────────────── */
@@ -140,7 +133,7 @@ body {
   /* ─── Safari Window ──────────────────────────────────────────── */
   #safari {
     @apply w-full h-full absolute top-0 left-0
-           bg-white dark:bg-zinc-900
+           bg-white dark:bg-zinc-800
            shadow-2xl drop-shadow-2xl overflow-hidden
            sm:w-[90vw] sm:h-auto sm:top-20 sm:left-1/2 sm:-translate-x-1/2
            sm:rounded-xl sm:max-h-[80vh] sm:overflow-y-auto
@@ -163,7 +156,7 @@ body {
 
     .blog {
       @apply p-5 md:p-10 max-w-3xl mx-auto
-             bg-white dark:bg-zinc-900;
+             bg-white dark:bg-zinc-800;
 
       h2 {
         @apply text-xl font-bold mb-6 md:mb-10
@@ -195,7 +188,7 @@ body {
            sm:block sm:w-[85vw] sm:relative sm:top-auto sm:left-auto
            sm:mx-auto sm:mt-5 sm:rounded-xl
            md:w-xl md:absolute md:top-32 md:left-1/12
-           bg-white dark:bg-zinc-900
+           bg-white dark:bg-zinc-800
            shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     h2 {
@@ -229,7 +222,7 @@ body {
       }
 
       .footnote {
-        @apply text-[#00A154] space-y-1;
+        @apply text-[#00A154] space-y-1 dark:text-zinc-300;
 
         p {
           @apply flex items-center;
@@ -246,7 +239,7 @@ body {
            sm:block sm:w-[85vw] sm:relative sm:top-auto sm:left-auto
            sm:mx-auto sm:mt-5 sm:rounded-xl
            md:max-w-2xl md:absolute md:top-60 md:left-5/12
-           bg-white dark:bg-zinc-900
+           bg-white dark:bg-zinc-800
            shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     h2 {
@@ -283,7 +276,7 @@ body {
            sm:block sm:w-[90vw] sm:relative sm:top-auto sm:left-auto sm:translate-y-0
            sm:mx-auto sm:mt-5 sm:rounded-xl sm:overflow-hidden
            md:max-w-3xl md:absolute md:top-96 md:left-1/2 md:-translate-y-1/2
-           bg-white dark:bg-zinc-900
+           bg-white dark:bg-zinc-800
            shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     .sidebar {

@@ -35,16 +35,16 @@ const navIcons = [
   },
 ];
 const navIconsMoblie = [
-  {
-    id: 1,
-    img: "/icons/wifi.svg",
-  },
+  
 
   {
-    id: 2,
+    id: 1,
     img: "/icons/user.svg",
   },
-  
+    {
+    id: 2,
+    img: "/icons/mode.svg",
+  },
 ];
 
 const dockApps = [

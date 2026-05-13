@@ -91,7 +91,7 @@ const Finder = () => {
         </div>
 
         {/* Desktop breadcrumb */}
-        <div className='hidden md:flex items-center gap-1 text-sm text-gray-500 flex-1 min-w-0 dark:bg-gray-800 dark:text-white'>
+        <div className='hidden md:flex items-center gap-1 text-sm text-gray-500 flex-1 min-w-0 dark:bg-zinc-800 dark:text-white'>
           <span>Finder</span>
           {activeLocation && (
             <>
