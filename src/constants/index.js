@@ -28,6 +28,7 @@ const navIcons = [
   {
     id: 3,
     img: "/icons/user.svg",
+  
   },
   {
     id: 4,
@@ -51,25 +52,25 @@ const dockApps = [
   {
     id: "finder",
     name: "Portfolio", // was "Finder"
-    icon: "finder.png",
+    icon: "finder.webp",
     canOpen: true,
   },
   {
     id: "safari",
     name: "Articles", // was "Safari"
-    icon: "safari.png",
+    icon: "safari.webp",
     canOpen: true,
   },
   {
     id: "photos",
     name: "Gallery", // was "Photos"
-    icon: "photos.png",
+    icon: "photos.webp",
     canOpen: true,
   },
   {
     id: "contact",
     name: "Contact", // or "Get in touch"
-    icon: "contact.png",
+    icon: "contact.webp",
     canOpen: true,
   },
   {
@@ -81,7 +82,7 @@ const dockApps = [
   {
     id: "trash",
     name: "Archive", // was "Trash"
-    icon: "trash.png",
+    icon: "trash.webp",
     canOpen: false,
   },
 ];
@@ -89,20 +90,20 @@ const dockAppsMoblie = [
   {
     id: "finder",
     name: "Portfolio", // was "Finder"
-    icon: "finder.png",
+    icon: "finder.webp",
     canOpen: true,
   },
   {
     id: "safari",
     name: "Articles", // was "Safari"
-    icon: "safari.png",
+    icon: "safari.webp",
     canOpen: true,
   },
 
   {
     id: "contact",
     name: "Contact", // or "Get in touch"
-    icon: "contact.png",
+    icon: "contact.webp",
     canOpen: true,
   },
   {
@@ -289,7 +290,7 @@ const WORK_LOCATION = {
         {
           id: 2,
           name: "MeriBhoomi.com",
-          icon: "/images/safari.png",
+          icon: "/images/safari.webp",
           kind: "file",
           fileType: "url",
           href: "https://Meribhoomi.com",
@@ -302,7 +303,7 @@ const WORK_LOCATION = {
           kind: "file",
           fileType: "img",
           position: "top-52 right-80",
-          imageUrl: "/images/Meribhoomi.png",
+          imageUrl: "/images/Meribhoomi.webp",
         },
        
       ],
@@ -334,7 +335,7 @@ const WORK_LOCATION = {
         {
           id: 2,
           name: "Textcode.com",
-          icon: "/images/safari.png",
+          icon: "/images/safari.webp",
           kind: "file",
           fileType: "url",
           href: "https://text-code.vercel.app/",
@@ -347,7 +348,7 @@ const WORK_LOCATION = {
           kind: "file",
           fileType: "img",
           position: "top-52 left-80",
-          imageUrl: "/images/TextCode.png",
+          imageUrl: "/images/TextCode.webp",
         },
      
       ],
@@ -379,7 +380,7 @@ const WORK_LOCATION = {
     //     {
     //       id: 2,
     //       name: "food-delivery-app.com",
-    //       icon: "/images/safari.png",
+    //       icon: "/images/safari.webp",
     //       kind: "file",
     //       fileType: "url",
     //       href: "https://youtu.be/LKrX390fJMw?si=cExkuVhf2DTV9G2-",
@@ -422,7 +423,7 @@ const ABOUT_LOCATION = {
       kind: "file",
       fileType: "img",
       position: "top-10 left-5",
-      imageUrl: "/images/Profile.jpg",
+      imageUrl: "/images/Profile.webp",
     },
     
   
@@ -434,7 +435,7 @@ const ABOUT_LOCATION = {
       fileType: "txt",
       position: "top-60 left-5",
       subtitle: "Meet the Developer Behind the Code",
-      image: "/images/Profile.jpg",
+      image: "/images/Profile.webp",
       description: [
         "Hey! I’m Amit 👋, a web developer who enjoys building sleek, interactive websites that actually work well.",
         "I specialize in JavaScript, React, and Next.js—and I love making things feel smooth, fast, and just a little bit delightful.",
@@ -478,7 +479,7 @@ const TRASH_LOCATION = {
       kind: "file",
       fileType: "img",
       position: "top-10 left-10",
-      imageUrl: "/images/trash-1.png",
+      imageUrl: "/images/trash-1.webp",
     },
     {
       id: 2,
@@ -487,7 +488,7 @@ const TRASH_LOCATION = {
       kind: "file",
       fileType: "img",
       position: "top-40 left-80",
-      imageUrl: "/images/trash-2.png",
+      imageUrl: "/images/trash-2.webp",
     },
   ],
 };
@@ -510,6 +511,7 @@ const WINDOW_CONFIG = {
   terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  wallpaper: { isOpen: false, INITIAL_Z_INDEX, data: null}
 };
 
 export { INITIAL_Z_INDEX, WINDOW_CONFIG };

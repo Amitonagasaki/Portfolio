@@ -11,7 +11,7 @@ const BOOT_MESSAGES = [
   'Welcome.',
 ];
 
-const DURATION = 2500; // total loader time in ms
+const DURATION = 500; // total loader time in ms
 
 const Loader = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);

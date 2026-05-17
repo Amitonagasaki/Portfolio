@@ -19,7 +19,7 @@ const Contact = () => {
         {/* Profile */}
         <div className="flex items-center gap-4">
           <img
-            src='/images/Profile.jpg'
+            src='/images/Profile.webp'
             alt="adrian"
             className="w-14 h-14 md:w-20 md:h-20 rounded-full object-cover shrink-0"
           />

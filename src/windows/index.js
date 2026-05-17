@@ -6,4 +6,5 @@ import Text from "#windows/Text";
 import Image from "./Image";
 import Contact from "./Contact";
 import Photo from "./Photo";
-export {Terminal,Safari,Resume,Finder,Text,Image,Contact,Photo};
+import Wallpaper from "./Wallpaper"
+export {Terminal,Safari,Resume,Finder,Text,Image,Contact,Photo,Wallpaper};

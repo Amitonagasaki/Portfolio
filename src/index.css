@@ -4,13 +4,14 @@
 
 html,
 body {
-  width: 100dvw;
-  overflow: hidden;
+  /* width: 100dvw;
+
   height: 100dvh;
-  background-image: url("/images/wallpaper.png");
+  background-image: url("/images/wallpaper-1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center; */
+    overflow: hidden;
 }
 
 @theme {
