@@ -1,8 +1,9 @@
 
 import { create } from "zustand";
+import { defaultWallpaper } from '#utils/wallpapers';
 const useWallpaperStore = create((set)=>({
  
-    current:'/public/wallpapers/wallpaper-1.webp',
+    current:defaultWallpaper,
     setWallpaper:(path)=>set({current:path}),
 
 }));
