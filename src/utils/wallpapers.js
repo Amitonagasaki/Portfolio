@@ -1,4 +1,4 @@
-const modules = import.meta.glob('/public/wallpapers/*',{eager: true,query: '?url', import: 'default'});
+const modules = import.meta.glob('../public/wallpapers/*',{eager: true,query: '?url', import: 'default'});
 
 export const wallpapers = Object.entries(modules).map(([path,url],index)=>({
     id:index+1,
