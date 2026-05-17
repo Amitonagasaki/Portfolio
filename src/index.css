@@ -82,7 +82,8 @@ body {
            absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
            select-none
            h-screen w-full px-6
-           sm:w-auto sm:h-auto sm:px-10;
+           sm:w-auto sm:h-auto sm:px-10
+          
 
     
   }
@@ -92,7 +93,7 @@ body {
     @apply absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 z-50 select-none;
 
     .dock-container {
-      @apply justify-between rounded-2xl p-1.5 flex items-end gap-1 sm:gap-1.5
+      @apply justify-between rounded-2xl p-2.5 flex items-end gap-1 sm:gap-1.5
              bg-white/20 dark:bg-white/10 backdrop-blur-md;
     }
 

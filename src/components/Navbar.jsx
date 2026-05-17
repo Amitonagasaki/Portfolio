@@ -1,6 +1,6 @@
 import React from 'react'
 
-import dayjs from 'dayjs'
+import dayjs from 'dayjs/esm'
 import { navIcons, navIconsMoblie, navLinks } from '#constants'
 import useWindowsStore from '#store/window'
 import useThemeStore from '#store/theme'

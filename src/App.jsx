@@ -2,7 +2,7 @@ import Navbar from '#components/Navbar'
 import Welcome from '#components/Welcome'
 import Dock from '#components/Dock'
 import Loader from '#components/Loading'
-import { useState } from 'react';
+import { useState,Suspense  } from 'react';
 import Home from '#components/Home';
 import { Draggable } from 'gsap/Draggable'
 import gsap from 'gsap'
@@ -31,6 +31,7 @@ const App = () => {
     <Navbar/>
     <Welcome/>
     <Dock/>
+    <Suspense fallback={null}>
   <Terminal/>
   <Safari/>
   <Resume/>
@@ -41,6 +42,7 @@ const App = () => {
   <Contact/>
   <Home/>
   <Wallpaper/>
+  </Suspense>
    </ContextMenu>
     </div>
   
