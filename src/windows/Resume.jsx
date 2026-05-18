@@ -1,27 +1,24 @@
 import WindowControls from '#components/WindowControls'
 import WindowWrapper from '#hoc/WindowWrapper'
-import { Download } from 'lucide-react'
-import React, { useState, useEffect, useRef } from 'react'
-import { Document, Page, pdfjs } from 'react-pdf';
-import 'react-pdf/dist/Page/AnnotationLayer.css';
-import 'react-pdf/dist/Page/TextLayer.css';
 
-pdfjs.GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+import React from 'react'
+
+// pdfjs.GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 const Resume = () => {
-  const containerRef = useRef(null);
-  const [pageWidth, setPageWidth] = useState(600);
+  // const containerRef = useRef(null);
+  // const [pageWidth, setPageWidth] = useState(600);
 
-  // Measure container width and set PDF page width to match
-  useEffect(() => {
-    const measure = () => {
-      if (containerRef.current) {
-        setPageWidth(containerRef.current.offsetWidth);
-      }
-    };
-    measure();
-    window.addEventListener('resize', measure);
-    return () => window.removeEventListener('resize', measure);
-  }, []);
+  // // Measure container width and set PDF page width to match
+  // useEffect(() => {
+  //   const measure = () => {
+  //     if (containerRef.current) {
+  //       setPageWidth(containerRef.current.offsetWidth);
+  //     }
+  //   };
+  //   measure();
+  //   window.addEventListener('resize', measure);
+  //   return () => window.removeEventListener('resize', measure);
+  // }, []);
 
   return (
     <>
@@ -29,18 +26,18 @@ const Resume = () => {
       <div id="window-header">
         <WindowControls target='resume' />
         <h2 className='font-bold text-sm text-center flex-1'>Resume.pdf</h2>
-        <a
+        {/* <a
           href="files/resume.pdf"
           download
           className='cursor-pointer shrink-0'
           title='Download Resume'
         >
           <Download className='icon' />
-        </a>
+        </a> */}
       </div>
 
       {/* ── 2. PDF Viewer ── */}
-      <div
+      {/* <div
         ref={containerRef}
         className='overflow-y-auto w-full max-h-[calc(100dvh-56px)]  bg-gray-100'
       >
@@ -64,7 +61,15 @@ const Resume = () => {
             renderAnnotationLayer
           />
         </Document>
-      </div>
+      </div> */}
+    <div className='w-full max-h-[calc(100dvh-56px)] md:max-h-screen overflow-auto'>
+  <iframe
+    src="/files/resume.pdf"
+    className='min-w-[99vw] md:min-w-[45vw] h-full min-h-[calc(100dvh-56px)] md:min-h-[80vh]'
+    style={{ border: 'none' }}
+  />
+</div>
+         
     </>
   );
 };

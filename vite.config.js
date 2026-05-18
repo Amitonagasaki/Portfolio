@@ -3,10 +3,10 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import {resolve,dirname} from "path"
 import { fileURLToPath } from 'url'
-
+import { visualizer } from "rollup-plugin-visualizer";
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(),  tailwindcss()],
+  plugins: [react(),  tailwindcss(),visualizer(),],
   resolve:{
     alias:{
       "#components":resolve(dirname(fileURLToPath(import.meta.url)),"src/components"),
@@ -25,6 +25,7 @@ export default defineConfig({
       manualChunks: {
         'react-vendor': ['react', 'react-dom'],
         'gsap-vendor':  ['gsap'],
+         'lucide-vendor': ['lucide-react'], 
       }
     }
   }
